@@ -55,9 +55,16 @@ if os.path.exists("static"):
 def root():
     return RedirectResponse(url="/static/index.html")
 
+from fastapi import Request
+
 @app.post("/reset")
-def reset(request: Optional[ResetRequest] = None):
-    idx = request.task_index if request else None
+async def reset(request: Request):
+    try:
+        data = await request.json()
+        idx = data.get("task_index")
+    except Exception:
+        idx = None
+        
     observation = env.reset(task_index=idx)
     return ApiEnvelope(observation=observation, reward=0.0, done=False,
         info={"message": "Environment reset.", "task_index": env.current_task_index},
