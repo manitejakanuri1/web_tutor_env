@@ -56,8 +56,9 @@ def root():
     return RedirectResponse(url="/static/index.html")
 
 @app.post("/reset")
-def reset(request: ResetRequest):
-    observation = env.reset(task_index=request.task_index)
+def reset(request: Optional[ResetRequest] = None):
+    idx = request.task_index if request else None
+    observation = env.reset(task_index=idx)
     return ApiEnvelope(observation=observation, reward=0.0, done=False,
         info={"message": "Environment reset.", "task_index": env.current_task_index},
         state=env.state())
