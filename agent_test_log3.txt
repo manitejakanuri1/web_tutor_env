@@ -1,0 +1,70 @@
+=== web_tutor_env inference ===
+Model: gpt-3.5-turbo
+Tasks: 5
+
+[START] task_id=html_basics task_index=0 difficulty=easy
+[STEP] step=0 phase=study action={"action_type": "read_section", "section_id": "s1"} energy=12
+[STEP] step=1 phase=study action={"action_type": "read_section", "section_id": "s2"} energy=11
+[STEP] step=2 phase=study action={"action_type": "read_section", "section_id": "s3"} energy=10
+[STEP] step=3 phase=study action={"action_type": "navigate", "target": "quiz"} energy=9
+[STEP] step=4 phase=quiz action={"action_type": "select_answer", "question_id": "q1", "option_index": 0} energy=9
+[STEP] step=5 phase=quiz action={"action_type": "select_answer", "question_id": "q2", "option_index": 2} energy=9
+[STEP] step=6 phase=quiz action={"action_type": "submit_quiz"} energy=9
+[END] task_id=html_basics reward=0.92 steps=7 done=True
+
+[START] task_id=python_data_types task_index=1 difficulty=easy
+[STEP] step=0 phase=study action={"action_type": "read_section", "section_id": "s1"} energy=12
+[STEP] step=1 phase=study action={"action_type": "read_section", "section_id": "s2"} energy=11
+[STEP] step=2 phase=study action={"action_type": "read_section", "section_id": "s3"} energy=10
+[STEP] step=3 phase=study action={"action_type": "navigate", "target": "quiz"} energy=9
+[STEP] step=4 phase=quiz action={"action_type": "select_answer", "question_id": "q1", "option_index": 2} energy=9
+[STEP] step=5 phase=quiz action={"action_type": "select_answer", "question_id": "q2", "option_index": 3} energy=9
+[STEP] step=6 phase=quiz action={"action_type": "submit_quiz"} energy=9
+[END] task_id=python_data_types reward=0.92 steps=7 done=True
+
+[START] task_id=css_selectors task_index=2 difficulty=medium
+[STEP] step=0 phase=study action={"action_type": "read_section", "section_id": "s1"} energy=15
+[STEP] step=1 phase=study action={"action_type": "read_section", "section_id": "s2"} energy=14
+[STEP] step=2 phase=study action={"action_type": "read_section", "section_id": "s3"} energy=13
+[STEP] step=3 phase=study action={"action_type": "read_section", "section_id": "s4"} energy=12
+[STEP] step=4 phase=study action={"action_type": "navigate", "target": "quiz"} energy=11
+[STEP] step=5 phase=quiz action={"action_type": "select_answer", "question_id": "q1", "option_index": 1} energy=11
+[STEP] step=6 phase=quiz action={"action_type": "select_answer", "question_id": "q2", "option_index": 2} energy=11
+[STEP] step=7 phase=quiz action={"action_type": "toggle_answer", "question_id": "q3", "option_index": 1} energy=11
+[STEP] step=8 phase=quiz action={"action_type": "toggle_answer", "question_id": "q3", "option_index": 2} energy=11
+[STEP] step=9 phase=quiz action={"action_type": "submit_quiz"} energy=11
+[END] task_id=css_selectors reward=0.9167 steps=10 done=True
+
+[START] task_id=js_events task_index=3 difficulty=medium
+[STEP] step=0 phase=study action={"action_type": "read_section", "section_id": "s1"} energy=15
+[STEP] step=1 phase=study action={"action_type": "read_section", "section_id": "s2"} energy=14
+[STEP] step=2 phase=study action={"action_type": "read_section", "section_id": "s3"} energy=13
+[STEP] step=3 phase=study action={"action_type": "read_section", "section_id": "s4"} energy=12
+[STEP] step=4 phase=study action={"action_type": "navigate", "target": "quiz"} energy=11
+[STEP] step=5 phase=quiz action={"action_type": "select_answer", "question_id": "q1", "option_index": 1} energy=11
+[STEP] step=6 phase=quiz action={"action_type": "select_answer", "question_id": "q2", "option_index": 2} energy=11
+[STEP] step=7 phase=quiz action={"action_type": "toggle_answer", "question_id": "q3", "option_index": 1} energy=11
+[STEP] step=8 phase=quiz action={"action_type": "toggle_answer", "question_id": "q3", "option_index": 2} energy=11
+[STEP] step=9 phase=quiz action={"action_type": "submit_quiz"} energy=11
+[END] task_id=js_events reward=0.9167 steps=10 done=True
+
+[START] task_id=rest_api_design task_index=4 difficulty=hard
+[STEP] step=0 phase=study action={"action_type": "read_section", "section_id": "s1"} energy=18
+[STEP] step=1 phase=study action={"action_type": "read_section", "section_id": "s2"} energy=17
+[STEP] step=2 phase=study action={"action_type": "read_section", "section_id": "s3"} energy=16
+[STEP] step=3 phase=study action={"action_type": "read_section", "section_id": "s4"} energy=15
+[STEP] step=4 phase=study action={"action_type": "read_section", "section_id": "s5"} energy=14
+[STEP] step=5 phase=study action={"action_type": "navigate", "target": "quiz"} energy=13
+[STEP] step=6 phase=quiz action={"action_type": "toggle_answer", "question_id": "q1", "option_index": 0} energy=13
+[STEP] step=7 phase=quiz action={"action_type": "toggle_answer", "question_id": "q1", "option_index": 2} energy=13
+[STEP] step=8 phase=quiz action={"action_type": "toggle_answer", "question_id": "q1", "option_index": 3} energy=13
+[STEP] step=9 phase=quiz action={"action_type": "select_answer", "question_id": "q2", "option_index": 1} energy=13
+[STEP] step=10 phase=quiz action={"action_type": "select_answer", "question_id": "q3", "option_index": 2} energy=13
+[STEP] step=11 phase=quiz action={"action_type": "toggle_answer", "question_id": "q4", "option_index": 0} energy=13
+[STEP] step=12 phase=quiz action={"action_type": "toggle_answer", "question_id": "q4", "option_index": 1} energy=13
+[STEP] step=13 phase=quiz action={"action_type": "toggle_answer", "question_id": "q4", "option_index": 3} energy=13
+[STEP] step=14 phase=quiz action={"action_type": "submit_quiz"} energy=13
+[END] task_id=rest_api_design reward=0.9067 steps=15 done=True
+
+=== Summary ===
+Total: 4.5801  Average: 0.9160

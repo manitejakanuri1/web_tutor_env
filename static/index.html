@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Tutor Environment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar context -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="icon">🧠</span>
+                <h2>WebTutor</h2>
+            </div>
+            
+            <div class="status-panel">
+                <div class="metric">
+                    <span class="label">Phase</span>
+                    <span class="value highlight" id="phase-display">Loading...</span>
+                </div>
+                <div class="metric">
+                    <span class="label">Score</span>
+                    <span class="value" id="score-display">0.00</span>
+                </div>
+            </div>
+
+            <div class="energy-panel">
+                <h3>Energy Budget</h3>
+                <div class="progress-bar">
+                    <div class="fill" id="energy-fill" style="width: 100%"></div>
+                </div>
+                <div class="stats">
+                    <span id="energy-text">0/0</span>
+                    <span class="cost-info">Cost/Action</span>
+                </div>
+            </div>
+
+            <h2>⚙ Actions</h2>
+            <div class="action-buttons">
+                <select id="task-selector" class="task-dropdown">
+                    <option value="random">🎲 Random Task</option>
+                    <option value="0">🟢 HTML (Easy)</option>
+                    <option value="1">🟡 CSS (Medium)</option>
+                    <option value="2">🟢 Python (Easy)</option>
+                    <option value="3">🟡 JS Async (Medium)</option>
+                    <option value="4">🔴 REST API (Hard)</option>
+                </select>
+                <button id="btn-reset" class="btn danger">Restart Episode</button>
+            </div>
+            <div id="dynamic-actions" class="action-buttons">
+                <!-- Actions injected dynamically -->
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <header class="task-header">
+                <div class="task-info">
+                    <span class="badge" id="difficulty-badge">Easy</span>
+                    <h1 id="task-title">Starting Environment...</h1>
+                </div>
+                <p id="instruction-text">Connecting to OpenEnv backend...</p>
+            </header>
+
+            <div class="content-area">
+                
+                <!-- Feedback Toast -->
+                <div id="feedback-toast" class="toast hidden"></div>
+
+                <!-- Study Phase View -->
+                <section id="view-study" class="view hidden">
+                    <div class="section-list">
+                        <h3>Study Materials</h3>
+                        <ul id="materials-ul"></ul>
+                    </div>
+                    <div class="reading-pane" id="reading-content">
+                        Select a section from the left to read its contents.
+                    </div>
+                </section>
+
+                <!-- Quiz Phase View -->
+                <section id="view-quiz" class="view hidden">
+                    <div id="questions-container">
+                        <!-- Questions injected here -->
+                    </div>
+                    <button id="btn-submit-quiz" class="btn submit hidden">Submit Answers</button>
+                </section>
+
+                <!-- Review / End Phase -->
+                <section id="view-review" class="view hidden">
+                    <div class="results-card">
+                        <h2>Episode Complete</h2>
+                        <div class="score-circle">
+                            <span id="final-score">--</span>
+                        </div>
+                        <p id="review-feedback">You have finished the task.</p>
+                        <div id="review-questions" class="review-questions-list"></div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

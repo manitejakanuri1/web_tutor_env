@@ -1,0 +1,1 @@
+E:\web_tutor_env\.venv\Scripts\python.exe: No module named openenv.__main__; 'openenv' is a package and cannot be directly executed

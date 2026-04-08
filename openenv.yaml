@@ -1,0 +1,15 @@
+name: web_tutor_env
+version: 0.1.0
+description: Beginner-friendly OpenEnv-style tutoring environment.
+
+# Best-effort OpenEnv-style layout.
+# TODO(openenv-schema): Confirm exact field names against the target OpenEnv
+# hackathon runtime. These keys are a safe fallback layout for local use.
+# If your runtime uses different names, map this file accordingly.
+entrypoint: server.app:app
+environment: server.environment:WebTutorEnv
+client: client:WebTutorClient
+supports_local_http: true
+
+# Safe local fallback (works today):
+# uvicorn server.app:app --host 0.0.0.0 --port 8000

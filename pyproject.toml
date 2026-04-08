@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "web_tutor_env"
+version = "0.1.0"
+description = "A beginner-friendly OpenEnv-style tutoring environment for hackathon demos."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "pydantic>=2.0",
+  "requests>=2.31",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[tool.setuptools]
+py-modules = ["client", "environment", "main", "models", "tasks", "smoke_test", "test_api"]
+
+[tool.setuptools.packages.find]
+include = ["server*"]

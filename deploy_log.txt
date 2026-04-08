@@ -1,0 +1,17 @@
+E:\web_tutor_env\.venv\Lib\site-packages\huggingface_hub\hf_api.py:10501: UserWarning: Warnings while validating metadata in README.md:
+- empty or missing yaml metadata in repo card
+  warnings.warn(f"Warnings while validating metadata in README.md:\n{message}")
+Creating/checking Space on Hugging Face...
+Warning on create_repo: (Request ID: Root=1-69d67025-5831181f5c9863fb3a2f5c6d;6e4f20e2-e967-4e07-bd3a-9e770143548e)
+
+403 Forbidden: You don't have the rights to create a space under the namespace "manitejakanuri9".
+Cannot access content at: https://huggingface.co/api/repos/create.
+Make sure your token has the correct permissions.
+Uploading project files securely...
+Deploy Error: 404 Client Error. (Request ID: Root=1-69d67026-648114676545f516357d15ec;6b3bbac0-4e19-4c72-bb5f-2c66318e7b48)
+
+Repository Not Found for url: https://huggingface.co/api/spaces/manitejakanuri9/web_tutor_env/preupload/main.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated and your token has the required permissions.
+For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+Note: Creating a commit assumes that the repo already exists on the Huggingface Hub. Please use `create_repo` if it's not the case.

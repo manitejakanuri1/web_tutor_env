@@ -1,0 +1,7 @@
+E:\web_tutor_env\.venv\Lib\site-packages\huggingface_hub\hf_api.py:10501: UserWarning: Warnings while validating metadata in README.md:
+- empty or missing yaml metadata in repo card
+  warnings.warn(f"Warnings while validating metadata in README.md:\n{message}")
+Creating/checking Space: Teja5454/web_tutor_env...
+Space is ready.
+Uploading project files securely...
+Deploy complete! Check your space at: https://huggingface.co/spaces/Teja5454/web_tutor_env
