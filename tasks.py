@@ -1093,6 +1093,714 @@ TASK_BANK: List[Dict[str, Any]] = [
         "step_budget": 25,
         "max_attempts": 3,
     },
+
+    # ── MEDIUM #3: Salesforce Admin Basics ────────────────────────────────
+    {
+        "id": "salesforce_admin",
+        "task_type": "course_module",
+        "difficulty": "medium",
+        "title": "Salesforce Admin Basics",
+        "instruction": (
+            "This module covers Salesforce platform fundamentals for admins. "
+            "Study the materials and answer the quiz. Some questions require "
+            "selecting multiple correct answers."
+        ),
+        "study_materials": [
+            {
+                "section_id": "s1",
+                "title": "Salesforce Platform Overview",
+                "content": (
+                    "Salesforce is a cloud-based CRM platform. It uses a multi-tenant "
+                    "architecture where all customers share the same infrastructure. "
+                    "The platform operates on metadata-driven development — you can "
+                    "build apps using clicks, not code (declarative). "
+                    "AppExchange is the Salesforce marketplace for apps. "
+                    "Salesforce editions include Essentials, Professional, Enterprise, "
+                    "and Unlimited. Trailhead is Salesforce's free learning platform. "
+                    "The three main clouds are Sales Cloud, Service Cloud, and Marketing Cloud."
+                ),
+            },
+            {
+                "section_id": "s2",
+                "title": "Objects, Fields, and Records",
+                "content": (
+                    "Standard objects are built-in: Account, Contact, Opportunity, Lead, Case. "
+                    "Custom objects are user-created and end with __c (e.g., Invoice__c). "
+                    "Fields store data: Text, Number, Date, Picklist, Checkbox, Lookup, "
+                    "Master-Detail, Formula, Roll-Up Summary. "
+                    "Lookup relationships are loose (child can exist without parent). "
+                    "Master-Detail relationships are tight (cascade delete, roll-up summaries). "
+                    "Records are individual rows of data in an object. "
+                    "Record Types control layouts, picklist values, and business processes. "
+                    "Page Layouts control which fields users see on a record page."
+                ),
+            },
+            {
+                "section_id": "s3",
+                "title": "Security Model",
+                "content": (
+                    "Organization-level security: Login IP ranges, login hours. "
+                    "Object-level security: Profiles and Permission Sets. "
+                    "Profiles define baseline permissions — every user has exactly one. "
+                    "Permission Sets add extra permissions on top of profiles. "
+                    "Field-level security (FLS) controls visibility of individual fields. "
+                    "Record-level security uses OWD (Organization-Wide Defaults): "
+                    "Private, Public Read Only, Public Read/Write. "
+                    "Role Hierarchy grants access up the chain. "
+                    "Sharing Rules extend access to specific groups. "
+                    "Manual Sharing allows individual record sharing."
+                ),
+            },
+            {
+                "section_id": "s4",
+                "title": "Automation and Reports",
+                "content": (
+                    "Flow Builder: most powerful declarative automation tool. "
+                    "Types: Screen Flow (user interaction), Record-Triggered Flow "
+                    "(before/after save), Scheduled Flow, Platform Event Flow. "
+                    "Process Builder is being retired in favor of Flow. "
+                    "Workflow Rules are legacy (simple field updates, email alerts). "
+                    "Approval Processes route records through approval steps. "
+                    "Report Types: Tabular, Summary, Matrix, Joined. "
+                    "Dashboards display report data as visual components. "
+                    "Report Folders control access. Dashboards have a running user."
+                ),
+            },
+        ],
+        "quiz_pool": [
+            {
+                "question_id": "q1",
+                "question": "What development approach does Salesforce emphasize?",
+                "options": ["Command-line only", "Declarative (clicks not code)", "Assembly language", "FTP uploads"],
+                "correct_options": [1], "type": "single", "key_section": "s1",
+                "wrong_feedback": "Review 'Platform Overview' — declarative development.",
+            },
+            {
+                "question_id": "q1",
+                "question": "What architecture does Salesforce use?",
+                "options": ["Single-tenant", "Multi-tenant", "Peer-to-peer", "Hybrid"],
+                "correct_options": [1], "type": "single", "key_section": "s1",
+                "wrong_feedback": "Review 'Platform Overview' — multi-tenant architecture.",
+            },
+            {
+                "question_id": "q2",
+                "question": "What suffix do custom objects have?",
+                "options": ["__r", "__c", "__x", "__s"],
+                "correct_options": [1], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'Objects' — custom objects end with __c.",
+            },
+            {
+                "question_id": "q3",
+                "question": "Which relationship type supports cascade delete?",
+                "options": ["Lookup", "Master-Detail", "Many-to-Many", "Self"],
+                "correct_options": [1], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'Objects' for Master-Detail relationships.",
+            },
+            {
+                "question_id": "q4",
+                "question": "How many Profiles can a user have?",
+                "options": ["Unlimited", "Up to 5", "Exactly one", "None"],
+                "correct_options": [2], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Security' — every user has exactly one profile.",
+            },
+            {
+                "question_id": "q5",
+                "question": "What is OWD in Salesforce?",
+                "options": ["Object Workflow Definition", "Organization-Wide Defaults",
+                            "Online Web Dashboard", "Open Widget Design"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Security' for Organization-Wide Defaults.",
+            },
+            {
+                "question_id": "q6",
+                "question": "Which are standard Salesforce objects? (Select ALL)",
+                "options": ["Account", "Contact", "Invoice", "Opportunity"],
+                "correct_options": [0, 1, 3], "type": "multi", "key_section": "s2",
+                "wrong_feedback": "Invoice is custom. Account, Contact, Opportunity are standard.",
+            },
+            {
+                "question_id": "q7",
+                "question": "What is the most powerful declarative automation tool?",
+                "options": ["Workflow Rules", "Process Builder", "Flow Builder", "Apex Triggers"],
+                "correct_options": [2], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Automation' — Flow Builder is most powerful declarative tool.",
+            },
+            {
+                "question_id": "q8",
+                "question": "Which report types exist in Salesforce? (Select ALL)",
+                "options": ["Tabular", "Summary", "Matrix", "Pivot"],
+                "correct_options": [0, 1, 2], "type": "multi", "key_section": "s4",
+                "wrong_feedback": "Review 'Reports' — Tabular, Summary, Matrix, Joined.",
+            },
+            {
+                "question_id": "q9",
+                "question": "What do Permission Sets do?",
+                "options": ["Replace profiles", "Add extra permissions on top of profiles",
+                            "Remove permissions", "Manage login hours"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Security' — Permission Sets add extra permissions.",
+            },
+            {
+                "question_id": "q10",
+                "question": "What is AppExchange?",
+                "options": ["A code editor", "Salesforce marketplace for apps",
+                            "A database tool", "An API gateway"],
+                "correct_options": [1], "type": "single", "key_section": "s1",
+                "wrong_feedback": "Review 'Platform Overview' for AppExchange.",
+            },
+            {
+                "question_id": "q11",
+                "question": "What controls which fields a user sees on a record page?",
+                "options": ["Profiles", "Page Layouts", "Permission Sets", "Sharing Rules"],
+                "correct_options": [1], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'Objects' — Page Layouts control field visibility.",
+            },
+            {
+                "question_id": "q12",
+                "question": "Which OWD option is most restrictive?",
+                "options": ["Public Read/Write", "Public Read Only", "Private", "Controlled by Parent"],
+                "correct_options": [2], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Security' — Private is most restrictive.",
+            },
+            {
+                "question_id": "q13",
+                "question": "What is being retired in favor of Flow?",
+                "options": ["Approval Processes", "Process Builder", "Validation Rules", "Reports"],
+                "correct_options": [1], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Automation' — Process Builder is being retired.",
+            },
+            {
+                "question_id": "q14",
+                "question": "What field type calculates values from other fields?",
+                "options": ["Picklist", "Lookup", "Formula", "Checkbox"],
+                "correct_options": [2], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'Objects' — Formula fields calculate values.",
+            },
+            {
+                "question_id": "q15",
+                "question": "Which Salesforce clouds exist? (Select ALL)",
+                "options": ["Sales Cloud", "Service Cloud", "Marketing Cloud", "Weather Cloud"],
+                "correct_options": [0, 1, 2], "type": "multi", "key_section": "s1",
+                "wrong_feedback": "Review 'Platform Overview' for Salesforce clouds.",
+            },
+            {
+                "question_id": "q16",
+                "question": "What does Role Hierarchy do?",
+                "options": ["Restricts access down", "Grants access up the chain",
+                            "Deletes records", "Creates fields"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Security' — Role Hierarchy grants upward access.",
+            },
+            {
+                "question_id": "q17",
+                "question": "What is a Record-Triggered Flow?",
+                "options": ["Runs on schedule", "Triggered before/after record save",
+                            "Requires user screen", "Sends emails only"],
+                "correct_options": [1], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Automation' for Record-Triggered Flows.",
+            },
+            {
+                "question_id": "q18",
+                "question": "What field type links two objects?",
+                "options": ["Formula", "Text", "Lookup", "Number"],
+                "correct_options": [2], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'Objects' — Lookup/Master-Detail link objects.",
+            },
+            {
+                "question_id": "q19",
+                "question": "What is Salesforce's free learning platform?",
+                "options": ["Coursera", "Trailhead", "Udemy", "AppExchange"],
+                "correct_options": [1], "type": "single", "key_section": "s1",
+                "wrong_feedback": "Review 'Platform Overview' — Trailhead is free learning.",
+            },
+            {
+                "question_id": "q20",
+                "question": "What do Dashboards display?",
+                "options": ["Raw SOQL data", "Report data as visual components",
+                            "Apex debug logs", "User login history"],
+                "correct_options": [1], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Reports' — Dashboards visualize report data.",
+            },
+        ],
+        "quiz_count": 3,
+        "energy_budget": 15,
+        "step_budget": 20,
+        "max_attempts": 3,
+    },
+
+    # ── HARD #2: Salesforce Apex Development ──────────────────────────────
+    {
+        "id": "salesforce_apex",
+        "task_type": "course_module",
+        "difficulty": "hard",
+        "title": "Salesforce Apex Development",
+        "instruction": (
+            "Advanced Salesforce development module covering Apex programming. "
+            "Energy is limited — study strategically. Multiple questions "
+            "require selecting all correct answers."
+        ),
+        "study_materials": [
+            {
+                "section_id": "s1",
+                "title": "Apex Fundamentals",
+                "content": (
+                    "Apex is a strongly-typed, object-oriented language (Java-like). "
+                    "Runs on Salesforce servers, not client-side. "
+                    "Supports classes, interfaces, enums, triggers, and batch jobs. "
+                    "Primitive types: Integer, Long, Double, Decimal, String, Boolean, "
+                    "Date, Datetime, Time, Id, Blob. "
+                    "Collections: List (ordered, duplicates), Set (unordered, unique), "
+                    "Map (key-value pairs). "
+                    "All Apex code runs in system mode by default (ignores FLS/CRUD). "
+                    "Use 'with sharing' to enforce record-level security."
+                ),
+            },
+            {
+                "section_id": "s2",
+                "title": "SOQL and SOSL",
+                "content": (
+                    "SOQL (Salesforce Object Query Language) queries single objects: "
+                    "SELECT Id, Name FROM Account WHERE Industry = 'Tech'. "
+                    "Supports parent-to-child subqueries: SELECT Id, (SELECT Id FROM Contacts) FROM Account. "
+                    "Child-to-parent: SELECT Account.Name FROM Contact. "
+                    "Aggregate functions: COUNT(), SUM(), AVG(), MIN(), MAX(). "
+                    "SOQL returns max 50,000 records per transaction. "
+                    "SOSL (Salesforce Object Search Language) searches across multiple objects: "
+                    "FIND 'Acme' IN ALL FIELDS RETURNING Account, Contact. "
+                    "SOSL returns max 2,000 records. Use SOSL for text search across objects."
+                ),
+            },
+            {
+                "section_id": "s3",
+                "title": "Triggers and Trigger Framework",
+                "content": (
+                    "Triggers execute before/after DML operations: insert, update, delete, undelete. "
+                    "Context variables: Trigger.new (new records), Trigger.old (old values), "
+                    "Trigger.newMap, Trigger.oldMap, Trigger.isInsert, Trigger.isBefore. "
+                    "Best practice: One trigger per object, logic in handler classes. "
+                    "NEVER put SOQL or DML inside loops (bulkification). "
+                    "Trigger execution order: validation rules, before triggers, system validation, "
+                    "after triggers, assignment rules, workflow rules, auto-response rules, "
+                    "then commit. Recursive triggers need static variables to prevent infinite loops."
+                ),
+            },
+            {
+                "section_id": "s4",
+                "title": "Governor Limits",
+                "content": (
+                    "Salesforce enforces governor limits to protect multi-tenant resources: "
+                    "100 SOQL queries per synchronous transaction. "
+                    "150 DML statements per transaction. "
+                    "50,000 records retrieved by SOQL per transaction. "
+                    "10,000 records processed by DML per transaction. "
+                    "6 MB heap size for synchronous Apex. 12 MB for async. "
+                    "100 callouts per transaction. 120-second timeout for sync. "
+                    "10-minute timeout for async (batch). "
+                    "Batch Apex processes large data sets: Database.executeBatch(). "
+                    "Future methods (@future) run asynchronously for callouts. "
+                    "Queueable Apex allows chaining async jobs."
+                ),
+            },
+            {
+                "section_id": "s5",
+                "title": "Testing in Apex",
+                "content": (
+                    "75% code coverage required for production deployment. "
+                    "Test classes use @isTest annotation. "
+                    "Test methods use @isTest or testMethod keyword. "
+                    "Use Test.startTest() and Test.stopTest() to reset governor limits. "
+                    "Create test data in tests — don't rely on org data by default. "
+                    "@TestSetup creates shared test data for all methods in the class. "
+                    "System.assert(), System.assertEquals(), System.assertNotEquals(). "
+                    "Test both positive and negative scenarios. "
+                    "Tests run in their own transaction and are rolled back."
+                ),
+            },
+        ],
+        "quiz_pool": [
+            {
+                "question_id": "q1",
+                "question": "What type of language is Apex?",
+                "options": ["Weakly-typed scripting", "Strongly-typed object-oriented",
+                            "Functional", "Assembly-like"],
+                "correct_options": [1], "type": "single", "key_section": "s1",
+                "wrong_feedback": "Review 'Apex Fundamentals' — strongly-typed OOP.",
+            },
+            {
+                "question_id": "q2",
+                "question": "What is the SOQL record retrieval limit per transaction?",
+                "options": ["10,000", "50,000", "100,000", "Unlimited"],
+                "correct_options": [1], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Governor Limits' — 50,000 SOQL records.",
+            },
+            {
+                "question_id": "q3",
+                "question": "How many SOQL queries are allowed per sync transaction?",
+                "options": ["50", "100", "200", "500"],
+                "correct_options": [1], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Governor Limits' — 100 SOQL queries sync.",
+            },
+            {
+                "question_id": "q4",
+                "question": "What keyword enforces record-level security in Apex?",
+                "options": ["with sharing", "without sharing", "private", "secure"],
+                "correct_options": [0], "type": "single", "key_section": "s1",
+                "wrong_feedback": "Review 'Fundamentals' — 'with sharing' enforces security.",
+            },
+            {
+                "question_id": "q5",
+                "question": "Which are Apex collection types? (Select ALL)",
+                "options": ["List", "Set", "Map", "Array"],
+                "correct_options": [0, 1, 2], "type": "multi", "key_section": "s1",
+                "wrong_feedback": "Review 'Fundamentals' — List, Set, Map are Apex collections.",
+            },
+            {
+                "question_id": "q6",
+                "question": "What should you NEVER do inside a loop?",
+                "options": ["Add to a list", "Put SOQL or DML", "Log messages", "Increment counters"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Triggers' — no SOQL/DML inside loops.",
+            },
+            {
+                "question_id": "q7",
+                "question": "What minimum code coverage is needed for deployment?",
+                "options": ["50%", "65%", "75%", "90%"],
+                "correct_options": [2], "type": "single", "key_section": "s5",
+                "wrong_feedback": "Review 'Testing' — 75% coverage required.",
+            },
+            {
+                "question_id": "q8",
+                "question": "What does Trigger.new contain?",
+                "options": ["Old field values", "New records being processed",
+                            "Deleted records", "Query results"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Triggers' — Trigger.new has new records.",
+            },
+            {
+                "question_id": "q9",
+                "question": "What is the max SOSL return?",
+                "options": ["500", "2,000", "50,000", "Unlimited"],
+                "correct_options": [1], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'SOQL and SOSL' — SOSL returns max 2,000.",
+            },
+            {
+                "question_id": "q10",
+                "question": "What does @TestSetup do?",
+                "options": ["Runs the test", "Creates shared test data for all methods",
+                            "Deploys to production", "Resets limits"],
+                "correct_options": [1], "type": "single", "key_section": "s5",
+                "wrong_feedback": "Review 'Testing' for @TestSetup annotation.",
+            },
+            {
+                "question_id": "q11",
+                "question": "Which are valid trigger events? (Select ALL)",
+                "options": ["before insert", "after update", "before delete", "before query"],
+                "correct_options": [0, 1, 2], "type": "multi", "key_section": "s3",
+                "wrong_feedback": "Review 'Triggers' — there is no 'before query' event.",
+            },
+            {
+                "question_id": "q12",
+                "question": "What aggregate functions does SOQL support? (Select ALL)",
+                "options": ["COUNT()", "SUM()", "MEDIAN()", "AVG()"],
+                "correct_options": [0, 1, 3], "type": "multi", "key_section": "s2",
+                "wrong_feedback": "Review 'SOQL' — MEDIAN is not supported.",
+            },
+            {
+                "question_id": "q13",
+                "question": "How many DML statements per transaction?",
+                "options": ["50", "100", "150", "200"],
+                "correct_options": [2], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Governor Limits' — 150 DML statements.",
+            },
+            {
+                "question_id": "q14",
+                "question": "What is the sync Apex heap size limit?",
+                "options": ["3 MB", "6 MB", "12 MB", "24 MB"],
+                "correct_options": [1], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Governor Limits' — 6 MB sync, 12 MB async.",
+            },
+            {
+                "question_id": "q15",
+                "question": "How do you do parent-to-child SOQL?",
+                "options": ["JOIN syntax", "Subquery in SELECT", "UNION", "MERGE"],
+                "correct_options": [1], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'SOQL' — use subqueries for parent-to-child.",
+            },
+            {
+                "question_id": "q16",
+                "question": "What processes large data sets asynchronously?",
+                "options": ["Triggers", "Batch Apex", "Validation Rules", "Workflows"],
+                "correct_options": [1], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Governor Limits' — Batch Apex for large data.",
+            },
+            {
+                "question_id": "q17",
+                "question": "What prevents recursive triggers?",
+                "options": ["Try-catch blocks", "Static boolean variables",
+                            "Validation rules", "Governor limits"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Triggers' — static variables prevent recursion.",
+            },
+            {
+                "question_id": "q18",
+                "question": "How does Test.stopTest() help?",
+                "options": ["Stops the test", "Executes async code and resets governor limits",
+                            "Deletes test data", "Deploys code"],
+                "correct_options": [1], "type": "single", "key_section": "s5",
+                "wrong_feedback": "Review 'Testing' — stopTest resets limits & runs async.",
+            },
+            {
+                "question_id": "q19",
+                "question": "What does System.assertEquals() do?",
+                "options": ["Assigns a value", "Verifies two values are equal",
+                            "Creates a record", "Runs a query"],
+                "correct_options": [1], "type": "single", "key_section": "s5",
+                "wrong_feedback": "Review 'Testing' — assertEquals verifies equality.",
+            },
+            {
+                "question_id": "q20",
+                "question": "Best practice: how many triggers per object?",
+                "options": ["Unlimited", "One", "Two", "None"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Triggers' — one trigger per object best practice.",
+            },
+        ],
+        "quiz_count": 4,
+        "energy_budget": 18,
+        "step_budget": 25,
+        "max_attempts": 3,
+    },
+
+    # ── HARD #3: AWS Cloud Fundamentals ───────────────────────────────────
+    {
+        "id": "aws_cloud",
+        "task_type": "course_module",
+        "difficulty": "hard",
+        "title": "AWS Cloud Fundamentals",
+        "instruction": (
+            "Advanced module on Amazon Web Services. Energy is limited — "
+            "study strategically. Multiple questions require all correct answers."
+        ),
+        "study_materials": [
+            {
+                "section_id": "s1",
+                "title": "AWS Core Services",
+                "content": (
+                    "EC2 (Elastic Compute Cloud): virtual servers in the cloud. "
+                    "Instance types: General Purpose (t3, m5), Compute Optimized (c5), "
+                    "Memory Optimized (r5), Storage Optimized (i3). "
+                    "S3 (Simple Storage Service): object storage with 99.999999999% durability. "
+                    "S3 storage classes: Standard, Intelligent-Tiering, Glacier, Glacier Deep Archive. "
+                    "RDS (Relational Database Service): managed databases — MySQL, PostgreSQL, "
+                    "Aurora, SQL Server, Oracle, MariaDB. "
+                    "DynamoDB: fully managed NoSQL key-value database. "
+                    "Lambda: serverless compute — run code without provisioning servers. "
+                    "Pay only for compute time consumed. Max execution: 15 minutes."
+                ),
+            },
+            {
+                "section_id": "s2",
+                "title": "IAM and Security",
+                "content": (
+                    "IAM (Identity and Access Management): controls access to AWS resources. "
+                    "Users: individual people or services. Groups: collections of users. "
+                    "Roles: temporary credentials for services or cross-account access. "
+                    "Policies: JSON documents defining permissions (Effect, Action, Resource). "
+                    "Root account should have MFA and should NOT be used for daily tasks. "
+                    "Principle of Least Privilege: grant only needed permissions. "
+                    "KMS (Key Management Service): manages encryption keys. "
+                    "CloudTrail: logs all API calls for auditing. "
+                    "Security Groups: stateful firewall for EC2 instances (allow rules only). "
+                    "NACLs: stateless firewall for subnets (allow AND deny rules)."
+                ),
+            },
+            {
+                "section_id": "s3",
+                "title": "Networking",
+                "content": (
+                    "VPC (Virtual Private Cloud): isolated network in AWS. "
+                    "Subnets: public (internet accessible) and private (internal only). "
+                    "Internet Gateway: connects VPC to the internet. "
+                    "NAT Gateway: lets private subnet instances access internet outbound. "
+                    "Route Tables: control traffic routing within the VPC. "
+                    "Elastic IP: static public IPv4 address. "
+                    "CloudFront: global CDN for content delivery. "
+                    "Route 53: managed DNS service. Supports A, AAAA, CNAME, MX records. "
+                    "ELB (Elastic Load Balancer): distributes traffic. Types: "
+                    "Application (HTTP/HTTPS L7), Network (TCP L4), Gateway (L3)."
+                ),
+            },
+            {
+                "section_id": "s4",
+                "title": "Scaling and Monitoring",
+                "content": (
+                    "Auto Scaling: automatically adjusts EC2 instance count. "
+                    "Scaling policies: Target Tracking, Step Scaling, Simple Scaling. "
+                    "CloudWatch: monitoring service for metrics, logs, and alarms. "
+                    "CloudWatch can trigger Auto Scaling based on CPU, memory, etc. "
+                    "SNS (Simple Notification Service): pub/sub messaging. "
+                    "SQS (Simple Queue Service): message queuing for decoupling. "
+                    "SQS types: Standard (at-least-once) and FIFO (exactly-once). "
+                    "Elastic Beanstalk: PaaS — deploy apps without managing infra. "
+                    "CloudFormation: Infrastructure as Code (IaC) using JSON/YAML templates. "
+                    "Terraform is a third-party alternative to CloudFormation."
+                ),
+            },
+        ],
+        "quiz_pool": [
+            {
+                "question_id": "q1",
+                "question": "What is EC2?",
+                "options": ["Object storage", "Virtual servers in the cloud",
+                            "DNS service", "Message queue"],
+                "correct_options": [1], "type": "single", "key_section": "s1",
+                "wrong_feedback": "Review 'Core Services' — EC2 is virtual servers.",
+            },
+            {
+                "question_id": "q2",
+                "question": "What S3 durability level?",
+                "options": ["99.9%", "99.99%", "99.999999999%", "100%"],
+                "correct_options": [2], "type": "single", "key_section": "s1",
+                "wrong_feedback": "Review 'Core Services' — S3 is 11 nines durability.",
+            },
+            {
+                "question_id": "q3",
+                "question": "What does IAM stand for?",
+                "options": ["Internet Access Management", "Identity and Access Management",
+                            "Integrated App Manager", "Internal Auth Module"],
+                "correct_options": [1], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'IAM' — Identity and Access Management.",
+            },
+            {
+                "question_id": "q4",
+                "question": "Which are valid S3 storage classes? (Select ALL)",
+                "options": ["Standard", "Glacier", "Intelligent-Tiering", "Enterprise"],
+                "correct_options": [0, 1, 2], "type": "multi", "key_section": "s1",
+                "wrong_feedback": "Review 'Core Services' for S3 storage classes.",
+            },
+            {
+                "question_id": "q5",
+                "question": "What is the max Lambda execution time?",
+                "options": ["5 minutes", "10 minutes", "15 minutes", "60 minutes"],
+                "correct_options": [2], "type": "single", "key_section": "s1",
+                "wrong_feedback": "Review 'Core Services' — Lambda max is 15 minutes.",
+            },
+            {
+                "question_id": "q6",
+                "question": "Security Groups are stateful or stateless?",
+                "options": ["Stateful", "Stateless", "Both", "Neither"],
+                "correct_options": [0], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'Security' — Security Groups are stateful.",
+            },
+            {
+                "question_id": "q7",
+                "question": "What connects a VPC to the internet?",
+                "options": ["NAT Gateway", "Internet Gateway", "Route Table", "Security Group"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Networking' — Internet Gateway connects VPC.",
+            },
+            {
+                "question_id": "q8",
+                "question": "Which SQS type guarantees exactly-once delivery?",
+                "options": ["Standard", "FIFO", "Priority", "Delayed"],
+                "correct_options": [1], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Scaling' — FIFO queues are exactly-once.",
+            },
+            {
+                "question_id": "q9",
+                "question": "What is CloudFormation?",
+                "options": ["Monitoring service", "CDN", "Infrastructure as Code",
+                            "Database service"],
+                "correct_options": [2], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Scaling' — CloudFormation is IaC.",
+            },
+            {
+                "question_id": "q10",
+                "question": "What is the root account best practice?",
+                "options": ["Use daily", "Enable MFA, don't use for daily tasks",
+                            "Share credentials", "Delete after setup"],
+                "correct_options": [1], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'Security' — root account needs MFA, minimal use.",
+            },
+            {
+                "question_id": "q11",
+                "question": "Which ELB type operates at Layer 7 (HTTP)?",
+                "options": ["Network", "Application", "Gateway", "Classic"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Networking' — ALB is Layer 7.",
+            },
+            {
+                "question_id": "q12",
+                "question": "What AWS service is managed DNS?",
+                "options": ["CloudFront", "Route 53", "VPC", "ELB"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Networking' — Route 53 is DNS.",
+            },
+            {
+                "question_id": "q13",
+                "question": "What does DynamoDB provide?",
+                "options": ["Relational database", "NoSQL key-value database",
+                            "Object storage", "Message queuing"],
+                "correct_options": [1], "type": "single", "key_section": "s1",
+                "wrong_feedback": "Review 'Core Services' — DynamoDB is NoSQL.",
+            },
+            {
+                "question_id": "q14",
+                "question": "Which are valid IAM entities? (Select ALL)",
+                "options": ["Users", "Groups", "Roles", "Subnets"],
+                "correct_options": [0, 1, 2], "type": "multi", "key_section": "s2",
+                "wrong_feedback": "Review 'IAM' — Users, Groups, Roles. Subnets are networking.",
+            },
+            {
+                "question_id": "q15",
+                "question": "What lets private subnets access the internet outbound?",
+                "options": ["Internet Gateway", "NAT Gateway", "Security Group", "NACL"],
+                "correct_options": [1], "type": "single", "key_section": "s3",
+                "wrong_feedback": "Review 'Networking' — NAT Gateway for private outbound.",
+            },
+            {
+                "question_id": "q16",
+                "question": "What is CloudWatch?",
+                "options": ["Storage service", "Monitoring and metrics service",
+                            "Database", "Deployment tool"],
+                "correct_options": [1], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Scaling' — CloudWatch monitors metrics.",
+            },
+            {
+                "question_id": "q17",
+                "question": "NACLs support which rule types? (Select ALL)",
+                "options": ["Allow rules", "Deny rules", "Forward rules", "Redirect rules"],
+                "correct_options": [0, 1], "type": "multi", "key_section": "s2",
+                "wrong_feedback": "Review 'Security' — NACLs have allow AND deny rules.",
+            },
+            {
+                "question_id": "q18",
+                "question": "What is Elastic Beanstalk?",
+                "options": ["IaC tool", "PaaS for deploying apps",
+                            "NoSQL database", "CDN"],
+                "correct_options": [1], "type": "single", "key_section": "s4",
+                "wrong_feedback": "Review 'Scaling' — Beanstalk is PaaS.",
+            },
+            {
+                "question_id": "q19",
+                "question": "What service logs all AWS API calls?",
+                "options": ["CloudWatch", "CloudTrail", "CloudFront", "CloudFormation"],
+                "correct_options": [1], "type": "single", "key_section": "s2",
+                "wrong_feedback": "Review 'Security' — CloudTrail logs API calls.",
+            },
+            {
+                "question_id": "q20",
+                "question": "Which databases does RDS support? (Select ALL)",
+                "options": ["MySQL", "PostgreSQL", "MongoDB", "Aurora"],
+                "correct_options": [0, 1, 3], "type": "multi", "key_section": "s1",
+                "wrong_feedback": "Review 'Core Services' — RDS doesn't support MongoDB.",
+            },
+        ],
+        "quiz_count": 4,
+        "energy_budget": 18,
+        "step_budget": 25,
+        "max_attempts": 3,
+    },
 ]
 
 
