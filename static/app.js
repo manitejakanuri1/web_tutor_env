@@ -1,6 +1,11 @@
 const API_BASE = window.location.origin;
 
 let currentState = null;
+let demoActive = false;
+
+async function sleep(ms) {
+    return new Promise(r => setTimeout(r, ms));
+}
 
 async function apiCall(endpoint, payload = null) {
     const options = {
@@ -205,6 +210,10 @@ async function doAction(payload) {
 }
 
 document.getElementById('btn-reset').onclick = async () => {
+    demoActive = false;
+    if(document.getElementById('btn-demo')) {
+        document.getElementById('btn-demo').innerText = "🤖 Watch AI Play";
+    }
     const selector = document.getElementById('task-selector');
     const val = selector ? selector.value : 'random';
     const payload = val === 'random' ? {} : { task_index: parseInt(val) };
@@ -212,8 +221,75 @@ document.getElementById('btn-reset').onclick = async () => {
     renderState(res);
 };
 document.getElementById('btn-submit-quiz').onclick = () => {
+    demoActive = false; // user took control
     doAction({ action_type: "submit_quiz" });
 };
+
+// Agent Demo Logic
+if(document.getElementById('btn-demo')) {
+    document.getElementById('btn-demo').onclick = async () => {
+        if (demoActive) {
+            demoActive = false;
+            document.getElementById('btn-demo').innerText = "🤖 Watch AI Play";
+            showFeedback("Demo mode stopped.");
+            return;
+        }
+        
+        demoActive = true;
+        document.getElementById('btn-demo').innerText = "🛑 Stop Demo";
+        showFeedback("AI Agent taking over...");
+        
+        while(demoActive) {
+            await sleep(800); // Artificial delay to simulate thinking/reading
+            if (!demoActive) break;
+            
+            let obs = null;
+            try {
+                const stateRes = await apiCall('/state');
+                if(stateRes && stateRes.observation) obs = stateRes.observation;
+            } catch(e) {}
+            
+            if (!obs) break;
+            if (obs.phase === 'completed') {
+                demoActive = false;
+                document.getElementById('btn-demo').innerText = "🤖 Watch AI Play";
+                showFeedback("Agent interaction complete!");
+                break;
+            }
+            
+            const actions = obs.available_actions;
+            if (!actions || actions.length === 0) break;
+            
+            let pickedPayload = null;
+            
+            if (obs.phase === 'study') {
+                const unread = obs.sections.find(s => !s.read);
+                if (unread) {
+                    pickedPayload = { action_type: "read_section", section_id: unread.section_id };
+                } else if (actions.includes('navigate(quiz)')) {
+                    pickedPayload = { action_type: "navigate", target: "quiz" };
+                }
+            } 
+            else if (obs.phase === 'quiz') {
+                let unanswered = obs.questions.find(q => !q.your_answer || q.your_answer.length === 0);
+                if (unanswered) {
+                    const actType = unanswered.type === 'multi' ? 'toggle_answer' : 'select_answer';
+                    pickedPayload = { action_type: actType, question_id: unanswered.question_id, option_index: 0 }; // AI randomly picks option 0 just for demo
+                } else if (actions.includes('submit_quiz')) {
+                    pickedPayload = { action_type: "submit_quiz" };
+                }
+            }
+            
+            if (pickedPayload) {
+                await doAction(pickedPayload);
+            } else {
+                demoActive = false;
+                document.getElementById('btn-demo').innerText = "🤖 Watch AI Play";
+                break;
+            }
+        }
+    };
+}
 
 // Auto start
 window.onload = async () => {

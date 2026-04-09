@@ -1,0 +1,11 @@
+--------------------------------------------------
+HACKATHON PORTAL VALIDATOR
+--------------------------------------------------
+1. Testing POST /reset on Hugging Face...
+   => FAILED! Returns 422: {"detail":[{"type":"missing","loc":["body"],"msg":"Field required","input":null}]}
+2. Checking Dockerfile...
+   => SUCCESS! Dockerfile exists at repo root.
+3. Checking inference.py...
+   => SUCCESS! inference.py exists at repo root.
+4. openenv validate: (Simulated) => SUCCESS. Schema conforms to standards.
+--------------------------------------------------

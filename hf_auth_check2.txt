@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from huggingface_hub import whoami; print(whoami())
+                                              ~~~~~~^^
+  File "E:\web_tutor_env\.venv\Lib\site-packages\huggingface_hub\utils\_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "E:\web_tutor_env\.venv\Lib\site-packages\huggingface_hub\hf_api.py", line 2134, in whoami
+    raise LocalTokenNotFoundError(
+    ...<2 lines>...
+    )
+huggingface_hub.errors.LocalTokenNotFoundError: Token is required to call the /whoami-v2 endpoint, but no token found. You must provide a token or be logged in to Hugging Face with `hf auth login` or `huggingface_hub.login`. See https://huggingface.co/settings/tokens.
