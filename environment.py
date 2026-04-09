@@ -16,7 +16,7 @@ import random
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 from models import Action, Observation, State
-from tasks import get_task_bank
+from tasks import get_task_bank, select_quiz_questions
 
 ENERGY_COST = {
     "navigate": 0,
@@ -49,6 +49,10 @@ class WebTutorEnv:
 
         self.current_task_index = task_index
         task = copy.deepcopy(self.task_bank[task_index])
+
+        # Randomly select questions from the pool for this episode
+        selected_quiz = select_quiz_questions(task, rng=self.random)
+        task["quiz"] = selected_quiz
         self._task_data = task
 
         sections = []
