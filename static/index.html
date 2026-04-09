@@ -38,19 +38,6 @@
                 </div>
             </div>
 
-            <h2>⚙ Actions</h2>
-            <div class="action-buttons">
-                <select id="task-selector" class="task-dropdown">
-                    <option value="random">🎲 Random Task</option>
-                    <option value="0">🟢 HTML (Easy)</option>
-                    <option value="1">🟡 CSS (Medium)</option>
-                    <option value="2">🟢 Python (Easy)</option>
-                    <option value="3">🟡 JS Async (Medium)</option>
-                    <option value="4">🔴 REST API (Hard)</option>
-                </select>
-                <button id="btn-reset" class="btn danger">Restart Episode</button>
-                <button id="btn-demo" class="btn btn-demo" style="margin-top: 8px;">🤖 Watch AI Play</button>
-            </div>
             <div id="dynamic-actions" class="action-buttons">
                 <!-- Actions injected dynamically -->
             </div>
@@ -59,9 +46,23 @@
         <!-- Main Workspace -->
         <main class="workspace">
             <header class="task-header">
-                <div class="task-info">
-                    <span class="badge" id="difficulty-badge">Easy</span>
-                    <h1 id="task-title">Starting Environment...</h1>
+                <div class="header-top-row">
+                    <div class="task-info">
+                        <span class="badge" id="difficulty-badge">Easy</span>
+                        <h1 id="task-title">Starting Environment...</h1>
+                    </div>
+                    <div class="header-actions">
+                        <select id="task-selector" class="task-dropdown">
+                            <option value="random">🎲 Random Task</option>
+                            <option value="0">🟢 HTML (Easy)</option>
+                            <option value="1">🟡 CSS (Medium)</option>
+                            <option value="2">🟢 Python (Easy)</option>
+                            <option value="3">🟡 JS Async (Medium)</option>
+                            <option value="4">🔴 REST API (Hard)</option>
+                        </select>
+                        <button id="btn-reset" class="btn danger">Restart Episode</button>
+                        <button id="btn-demo" class="btn btn-demo">🤖 Watch AI Play</button>
+                    </div>
                 </div>
                 <p id="instruction-text">Connecting to OpenEnv backend...</p>
             </header>

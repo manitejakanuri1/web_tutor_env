@@ -286,12 +286,42 @@ body {
     z-index: 1;
 }
 
+.header-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    animation: fadeInDown 0.5s ease-out;
+}
+
 .task-info {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 12px;
-    animation: fadeInDown 0.5s ease-out;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.header-actions .task-dropdown {
+    width: auto;
+    min-width: 180px;
+    margin-bottom: 0;
+}
+
+.header-actions .btn {
+    white-space: nowrap;
+    padding: 10px 16px;
+    font-size: 0.9rem;
 }
 
 @keyframes fadeInDown {
@@ -305,6 +335,9 @@ body {
     background: linear-gradient(90deg, #fff, #94a3b8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .badge {
