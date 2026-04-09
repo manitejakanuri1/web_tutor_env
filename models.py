@@ -86,6 +86,7 @@ class State:
     attempts: int = 0
     max_attempts: int = 3
     score: float = 0.0
+    quiz_score: float = 0.0
     invalid_action_taken: bool = False
     last_feedback: str = "Ready to start."
     done: bool = False

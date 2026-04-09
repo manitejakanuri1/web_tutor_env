@@ -320,6 +320,7 @@ class WebTutorEnv:
         quiz_score = correct_count / len(s.questions) if s.questions else 0.0
         reward = self._compute_reward(quiz_score)
         s.score = reward
+        s.quiz_score = quiz_score
 
         all_correct = all(r["correct"] for r in results)
 

@@ -39,7 +39,9 @@ async function renderState(envelope) {
 
     // Status metrics
     document.getElementById('phase-display').innerText = obs.phase || '';
-    document.getElementById('score-display').innerText = (envelope.reward || 0).toFixed(2);
+    const scoreVal = currentState.quiz_score !== undefined ? currentState.quiz_score : 0;
+    const rewardVal = currentState.score !== undefined ? currentState.score : 0;
+    document.getElementById('score-display').innerText = (scoreVal * 100).toFixed(0) + '% (R:' + rewardVal.toFixed(2) + ')';
 
     // Energy Bar
     const budget = currentState.energy_budget || 0;
@@ -183,8 +185,13 @@ function renderQuizPhase(obs) {
 }
 
 function renderReviewPhase(obs, state) {
-    document.getElementById('final-score').innerText = (state.score * 100).toFixed(0) + '%';
-    document.getElementById('review-feedback').innerText = state.last_feedback || 'Episode finished.';
+    // Show quiz accuracy in the big circle, NOT the RL reward
+    const quizPct = (state.quiz_score !== undefined ? state.quiz_score : 0);
+    const rewardVal = (state.score !== undefined ? state.score : 0);
+    document.getElementById('final-score').innerText = (quizPct * 100).toFixed(0) + '%';
+    document.getElementById('review-feedback').innerText =
+        (state.last_feedback || 'Episode finished.') +
+        '\nRL Reward: ' + rewardVal.toFixed(2) + ' | Quiz Accuracy: ' + (quizPct * 100).toFixed(0) + '%';
 
     const container = document.getElementById('review-questions');
     container.innerHTML = '';
