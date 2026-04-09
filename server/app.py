@@ -9,7 +9,7 @@ from server.environment import Action, WebTutorEnv
 
 app = FastAPI(title="web_tutor_env", version="0.2.0",
     description="Multi-phase OpenEnv tutoring environment with study materials, quizzes, and energy management.")
-env = WebTutorEnv(seed=42)
+env = WebTutorEnv(seed=None)
 
 class ResetRequest(BaseModel):
     task_index: Optional[int] = Field(default=None, ge=0)
