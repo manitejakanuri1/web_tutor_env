@@ -22,7 +22,7 @@ Welcome to the **Web Tutor Environment**, a sophisticated multi-phase Reinforcem
 
 ---
 
-## 🚀 How to Test Manually (For Judges)
+## 🚀 How to Test Manually 
 
 The environment has been entirely deployed on **Hugging Face Spaces**. You can explore the GUI immediately!
 
